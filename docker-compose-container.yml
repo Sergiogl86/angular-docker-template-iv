@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  example:
+    user: node
+    container_name: angular-docker-container
+    build:
+      context: .
+      dockerfile: Dockerfile.container
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+    working_dir: /app
+    ports:
+      - '4200:4200'
